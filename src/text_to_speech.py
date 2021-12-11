@@ -1,5 +1,4 @@
 from google.cloud import texttospeech
-import requests
 from pydub import AudioSegment
 from pydub.playback import play
 import io
@@ -16,18 +15,19 @@ class TextToSpeech:
             audio_encoding=texttospeech.AudioEncoding.MP3
         )
 
-    def generate_mp3(self, text):
+    def generate_mp3(self, text: str) -> bytes:
+        """
+        Converts text to speech and returns the mp3 data
+        """
         synthesis_input = texttospeech.SynthesisInput(text=text)
         response = self.client.synthesize_speech(
             input=synthesis_input, voice=self.voice, audio_config=self.audio_config
         )
         return response.audio_content
 
-    def generate_mp3_2(self, text):
-        url = f"https://www.google.com/speech-api/v1/synthesize?text={text}&lang=en&client=EcoutezJsTts&enc=mpeg"
-        response = requests.get(url)
-        return response.content
-
-    def say(self, text):
+    def say(self, text: str) -> None:
+        """
+        Converts text to speech and plays it using pydub
+        """
         mp3_data = self.generate_mp3(text)
         play(AudioSegment.from_file(io.BytesIO(mp3_data), format="mp3"))

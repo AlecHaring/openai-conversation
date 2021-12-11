@@ -23,6 +23,9 @@ class TranscribingMicrophone:
         self.microphone_stream = MicrophoneStream(self.RATE, self.CHUNK)
 
     def __enter__(self):
+        """
+        Start the microphone stream and start listening for speech.
+        """
         self.microphone_stream.__enter__()
         audio_generator = self.microphone_stream.generator()
         requests = (
@@ -34,9 +37,17 @@ class TranscribingMicrophone:
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
+        """
+        Stop the microphone stream.
+        """
         self.microphone_stream.__exit__(exc_type, exc_val, exc_tb)
 
     def listen_for_responses(self):
+        """
+        Loop through the responses and wait for Google to determine the user is done speaking.
+        (this function blocks until the user is done speaking)
+        :return: the final transcript of the user
+        """
         for response in self.responses:
             if not response.results:
                 continue

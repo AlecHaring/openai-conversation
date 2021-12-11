@@ -1,6 +1,11 @@
 import pyaudio
 from six.moves import queue
 
+"""
+Code modified from: 
+    https://github.com/googleapis/python-speech/blob/HEAD/samples/microphone/transcribe_streaming_mic.py
+"""
+
 
 class MicrophoneStream(object):
     """Opens a recording stream as a generator yielding the audio chunks."""
