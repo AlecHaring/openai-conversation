@@ -33,17 +33,16 @@ python -m venv .\venv
 pip3 install -r requirements
 ```
 
-### 3. Set up Google Cloud Info
-#### Google Cloud Platform
+### 2. Set up Google Cloud Information
 - Follow the instructions [here](https://cloud.google.com/speech-to-text/docs/before-you-begin) to set up Speech-to-Text.
 - Follow the instructions [here](https://cloud.google.com/text-to-speech/docs/before-you-begin) to set up Text-to-Speech.
 
-### 4. Get OpenAI API Key
+### 3. Get OpenAI API Key
 - Go to [OpenAI's website](https://beta.openai.com/signup/) and sign up for an account.
 - Go to [API keys page](https://beta.openai.com/account/api-keys) and copy the secret key.
   - Set the `API_KEY` variable in the `OpenAIDriver` class in `src/open_ai_driver.py`
 
-### 3. 🔌 Run!
+### 4. 🔌 Run!
 ```shell
 python3 src/main.py
 ```
