@@ -16,7 +16,7 @@ python3 -m venv ./venv
 # Activate the virtual environment:
 source ./venv/bin/activate
 # Install required packages:
-pip3 install -r requirements
+pip3 install -r requirements.txt
 ```
 
 #### Windows
@@ -30,7 +30,7 @@ python -m venv .\venv
 # Activate the virtual environment:
 .\venv\Scripts\activate
 # Install required packages:
-pip3 install -r requirements
+pip3 install -r requirements.txt
 ```
 
 ### 2. Set up Google Cloud Information
